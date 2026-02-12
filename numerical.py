@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import numpy as np
 
-
+#ساخت ماتریس فاصله بین همه ایستگاه‌ها.
 def station_distance_matrix(latitudes: np.ndarray, longitudes: np.ndarray) -> np.ndarray:
     """Compute pairwise Euclidean distances between stations (flat-earth)."""
     lat = np.asarray(latitudes, dtype=float)
@@ -13,7 +13,7 @@ def station_distance_matrix(latitudes: np.ndarray, longitudes: np.ndarray) -> np
     lon_diff = lon[:, np.newaxis] - lon[np.newaxis, :]
     return np.sqrt(lat_diff ** 2 + lon_diff ** 2)
 
-
+#محاسبه مدت سفرها.
 def trip_duration_stats(durations: np.ndarray) -> dict[str, float]:
     """Compute summary stats for durations."""
     d = np.asarray(durations, dtype=float)
@@ -26,7 +26,7 @@ def trip_duration_stats(durations: np.ndarray) -> dict[str, float]:
         "p90": float(np.percentile(d, 90)),
     }
 
-
+#تشخیص داده‌های پرت
 def detect_outliers_zscore(values: np.ndarray, threshold: float = 3.0) -> np.ndarray:
     """Return boolean mask where |z| > threshold."""
     v = np.asarray(values, dtype=float)
@@ -37,7 +37,7 @@ def detect_outliers_zscore(values: np.ndarray, threshold: float = 3.0) -> np.nda
     z = (v - mean) / std
     return np.abs(z) >= float(threshold)
 
-
+#محاسبه برداری هزینه سفر برای هزاران سفر
 def calculate_fares(
     durations: np.ndarray,
     distances: np.ndarray,
