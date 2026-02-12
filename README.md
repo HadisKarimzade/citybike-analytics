@@ -1,15 +1,6 @@
 # CityBike — Bike-Sharing Analytics Platform
 
 A Python-based analytics platform for a fictional city bike-sharing service.
-It demonstrates:
-
-- Object-oriented design (inheritance, ABC, properties, validation)
-- Pandas data loading/cleaning and analytics
-- Custom algorithms (sorting/searching) + benchmarks
-- NumPy numerical computing (distance matrix, stats, outliers, vectorized fares)
-- Matplotlib visualizations exported to `output/figures/`
-- Text + CSV reporting to `output/`
-
 
 
 ## Setup
@@ -37,15 +28,5 @@ Outputs are written to:
 - `output/search_sort_benchmarks.txt`
 - `output/figures/*.png`
 
-
-
-## Notes on cleaning strategy
-
-- **Trips**: duplicates removed by `trip_id`; times parsed; numeric fields coerced to float.
-  Missing `duration_minutes` or `distance_km` are imputed using the **median** of that column.
-  Missing `status` is filled as `"completed"` (most common in this synthetic dataset).
-  Invalid rows (end before start, negative distance/duration, unknown categoricals) are removed.
-- **Stations**: numeric types coerced; invalid capacities/coords removed.
-- **Maintenance**: dates parsed; missing cost imputed with **median cost per bike_type** (fallback overall median).
 
 
