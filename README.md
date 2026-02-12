@@ -10,29 +10,10 @@ It demonstrates:
 - Matplotlib visualizations exported to `output/figures/`
 - Text + CSV reporting to `output/`
 
-## Project structure
 
-```
-citybike/
-  main.py
-  models.py
-  analyzer.py
-  algorithms.py
-  numerical.py
-  visualization.py
-  pricing.py
-  factories.py
-  utils.py
-  generate_data.py
-  requirements.txt
-  data/
-  output/
-  tests/
-```
 
 ## Setup
 
-```bash
 python -m venv .venv
 source .venv/bin/activate      # Linux/macOS
 # .venv\Scripts\activate     # Windows
@@ -56,11 +37,7 @@ Outputs are written to:
 - `output/search_sort_benchmarks.txt`
 - `output/figures/*.png`
 
-## Run tests
 
-```bash
-pytest -v
-```
 
 ## Notes on cleaning strategy
 
@@ -71,6 +48,4 @@ pytest -v
 - **Stations**: numeric types coerced; invalid capacities/coords removed.
 - **Maintenance**: dates parsed; missing cost imputed with **median cost per bike_type** (fallback overall median).
 
-## Business questions answered
 
-Implements all 14 questions from the handout (Q1–Q14) in `BikeShareSystem`.
