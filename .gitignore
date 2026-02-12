@@ -1,0 +1,10 @@
+__pycache__/
+*.py[codz]
+.venv/
+venv/
+.env
+.pytest_cache/
+output/figures/*.png
+output/*.csv
+output/*.txt
+data/*_clean.csv
