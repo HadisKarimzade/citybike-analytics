@@ -8,7 +8,6 @@ from typing import Any
 
 
 def merge_sort(data: list[Any], key: Callable = lambda x: x) -> list[Any]:
-    """Sort using merge sort (O(n log n) time, O(n) space)."""
     if len(data) <= 1:
         return list(data)
     mid = len(data) // 2
@@ -33,7 +32,6 @@ def _merge(left: list[Any], right: list[Any], key: Callable) -> list[Any]:
 
 
 def insertion_sort(data: list[Any], key: Callable = lambda x: x) -> list[Any]:
-    """Insertion sort (O(n^2) avg/worst, O(n) best if already sorted)."""
     arr = list(data)
     for i in range(1, len(arr)):
         current = arr[i]
@@ -47,7 +45,7 @@ def insertion_sort(data: list[Any], key: Callable = lambda x: x) -> list[Any]:
 
 
 def binary_search(sorted_data: list[Any], target: Any, key: Callable = lambda x: x) -> int | None:
-    """Binary search on sorted_data (O(log n)). Returns index or None."""
+    
     low, high = 0, len(sorted_data) - 1
     while low <= high:
         mid = (low + high) // 2
@@ -62,7 +60,7 @@ def binary_search(sorted_data: list[Any], target: Any, key: Callable = lambda x:
 
 
 def linear_search(data: list[Any], target: Any, key: Callable = lambda x: x) -> int | None:
-    """Linear scan (O(n)). Returns index or None."""
+   
     for i, item in enumerate(data):
         if key(item) == target:
             return i
@@ -82,9 +80,7 @@ def benchmark_sort(data: list[Any], key: Callable = lambda x: x, repeats: int = 
 
 
 def benchmark_search(data: list[Any], target: Any, key: Callable = lambda x: x, repeats: int = 5) -> dict[str, float]:
-    """Compare binary_search vs linear_search vs `target in ...` (using keys).
-
-    Assumes *data* is already sorted by *key* for binary_search.
+    """Compare binary_search vs linear_search vs `target in ...` 
     """
     t_bin = timeit.timeit(lambda: binary_search(data, target, key=key), number=repeats)
     t_lin = timeit.timeit(lambda: linear_search(data, target, key=key), number=repeats)
